@@ -1,0 +1,97 @@
+extends ../layouts/default
+include ../helpers/mixins
+//- include ../components/button
+
+block variables
+	- const title = "UI page"
+	- const bodyClass = ""
+
+block content
+	.ui-block-1
+		.container
+
+			.text(style="color: #000;")
+				h1 Заголовок 1го уровня
+				h2 Заголовок 2го уровня
+				h3 Заголовок 3го уровня
+				h4 Заголовок 4го уровня
+				h5 Заголовок 5го уровня
+				h6 Заголовок 6го уровня
+				p 
+					| Далеко-далеко за словесными горами, в стране гласных и согласных живут рыбные тексты.
+					a(href="#") это ссылка
+				p 
+					| Далеко-далеко за словесными горами в 
+					b выделенное слово 
+					| и согласных живут рыбные тексты. Запятой, заголовок щеке использовало предупредила диких деревни вопроса до она! Курсивных буквоград строчка путь lorem это маленькая подпоясал алфавит! Единственное.
+				ul
+					li пункт 1
+					li пункт 2
+					li пункт 3
+				p 
+					| Далеко-далеко за словесными горами, в стране гласных и согласных живут рыбные тексты.
+				ol
+					li пункт 1
+					li пункт 2
+					li пункт 3
+				blockquote Lorem ipsum dolor, sit amet consectetur adipisicing elit. Vel modi repellendus voluptatum error dolorem magni nostrum odit dicta cum dolorum. Ducimus autem harum fuga voluptas velit iusto. Eius, corrupti fugit!
+
+			.feedback-form
+				.feedback-form__main
+					form.js-validate.js-feedback-form(action="#" autocomplete="off")
+						// js-feedback-form for backend
+						input(type="hidden" name="Форма" value="Cвяжитесь с нами")
+						.feedback-form__fields
+							br
+							.feedback-form__fields-item
+								label.input-text.input-text--label
+									span.input-text__label 
+										| Имя 
+										i.imp-sign *
+									input.input-text__field(type="text" name="Name" required="")
+							br
+							.feedback-form__fields-item
+								label.input-text
+									input.input-text__field(type="text" name="Name")
+									span.input-text__placeholder Ваше имя
+							br
+							.feedback-form__fields-item.feedback-form__fields-item--mb-60
+								label.input-text
+									input.input-text__field(type="tel" name="tel" required="")
+									span.input-text__placeholder 
+										| Телефон 
+										i.imp-sign *
+							br
+							.feedback-form__fields-item.feedback-form__fields-item--mb-60
+								label.input-text
+									input.input-text__field(type="email" name="email" required="")
+									span.input-text__placeholder Электронная почта
+							br
+							.feedback-form__fields-item
+								label.input-text
+									textarea.input-text__field(name="Message" rows="4" required="")
+									span.input-text__placeholder Сообщение
+						br
+						.feedback-form__agree
+									
+							span.checkbox-wrap
+								label.checkbox
+									input.checkbox__input(type="checkbox" name="Согласие на обработку данных" value="Да" checked="" required="" data-parsley-error-message="Нужно согласие на обработку данных" data-parsley-multiple="Согласие на обработку данных")
+									i.checkbox__icon
+									span.checkbox__text
+										| Принимаю 
+										a(href="#").link.link--theme-red политику конфиденциальности
+
+						button(type="submit") Send
+
+
+			br
+			+breadcrumbs(['Каталог', 'Какая-то'], title)
+			+breadcrumbs([], title)
+	
+
+			
+	
+
+
+

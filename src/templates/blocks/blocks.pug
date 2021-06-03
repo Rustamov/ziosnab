@@ -1,0 +1,21 @@
+mixin breadcrumbs(list, currentpage, mod)
+    - const lastindex = list.length + 1;
+
+    +b.UL.breadcrumbs(itemscope='' itemtype='http://schema.org/BreadcrumbList' class=mod)
+        +e.LI.item(itemprop='itemListElement' itemscope='' itemtype='http://schema.org/ListItem')
+            +e.A.link(href='/' itemprop='item')
+                span(itemprop='name' content='Главная') Главная
+            i.breadcrumbs__sep &raquo;
+            meta(itemprop='position' content='0')
+
+        each item, index in list.length ? list : ''
+            +e.LI.item(itemprop='itemListElement' itemscope='' itemtype='http://schema.org/ListItem')
+                +e.A.link(href='/' itemprop='item')
+                    span(itemprop='name' content='Главная')= item
+                i.breadcrumbs__sep &raquo;
+                meta(itemprop='position' content=index + 1)
+
+        +e.LI.item(itemprop='itemListElement' itemscope='' itemtype='http://schema.org/ListItem')
+            span(itemprop='name' content='Главная')= currentpage
+            meta(itemprop='position' content=lastindex)
+        

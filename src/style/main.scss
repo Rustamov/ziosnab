@@ -1,0 +1,116 @@
+@import '_libs';
+@import '_fonts';
+@import '_varaibles';
+@import '_mixins';
+@import '_sprite';
+@import '_ui';
+
+@include sprites($spritesheet-sprites); //if icons empty will throw error
+
+
+body {
+  min-width: 320px;
+  font-family: $ffRoboto;
+  font-size: 20px;
+  line-height: 1.15;
+  color: #000000;
+  background: #fff;
+}
+
+
+/* Back top */
+.back-to-top {
+  z-index: 2;
+  width: 50px;
+  height: 50px;
+  background-color: $color1;
+  overflow: hidden;
+  text-indent: -99999px;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  position: fixed;
+  @include rule(bottom, (xs: 0, xl: 50px));
+  @include rule(right, (xs: 0%, xl: 3%));
+  cursor: pointer;
+ 
+  transition: 0.2s;
+
+  &.show:hover,
+  &.show:active {
+    opacity: 1;
+  }
+  &.show {
+    visibility: visible;
+    opacity: 0.5;
+    pointer-events: visible;
+  }
+  &::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 16px;
+    height: 16px;
+    margin-left: -8px;
+    margin-top: -4px;
+    border-top: 4px solid #fff;
+    border-left: 4px solid #fff;
+    background: none;
+    transform: rotate(45deg);
+  }
+}
+
+/* End Back top */
+
+
+
+.breadcrumbs-block {
+  @include rule(margin, (xs: 0 0 25px, lg: 0 0 35px));
+}
+
+.breadcrumbs {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  @include rule(flex-wrap, (xs: nowrap, lg: wrap));
+  @include rule(overflow-x, (xs: auto, lg: hidden));;
+  align-items: center;
+  font-family: $ffRoboto;
+  font-size: 14px;
+  line-height: 1.5;
+  font-weight: 400;
+  color: inherit;
+  
+  &__item {
+      display: inline-flex;
+      align-items: center;
+      font-weight: 400;
+      white-space: nowrap;
+      text-decoration: none;
+      word-wrap: break-word;
+      overflow-wrap: break-word;
+  }
+
+  &__link {
+      text-decoration: none;
+      color: inherit;
+      transition: color 0.2s;
+
+      @include hover {
+          color: $color1;
+      }
+  }
+
+  &__sep {
+      display: inline-block;
+      vertical-align: middle;
+      margin: 0 8px;
+      text-decoration: none;
+      font-weight: 300;
+      font-style: normal;
+  }
+}
+
+
